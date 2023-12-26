@@ -1,2 +1,4 @@
-for x in range(0,1):
-    print("kjdjkdc")
+a = "skskas"
+b=a.replace("k","")
+print(a)
+print(b)
