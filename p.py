@@ -1,4 +1,7 @@
-a = "skskas"
-b=a.replace("k","")
-print(a)
-print(b)
+for a in range(12):
+    for b in range(12):
+        if a==8:
+            if b==3:
+                continue
+            
+        print(a,b)
