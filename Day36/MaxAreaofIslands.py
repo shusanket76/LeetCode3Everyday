@@ -1,4 +1,5 @@
-def maxAreaOfIsland(grid) -> int:
+class Solution:
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         res = [0]
         path=set()
         def dfs(x,y, path):
@@ -23,6 +24,3 @@ def maxAreaOfIsland(grid) -> int:
                     res[0] = max(res[0],dfs(x,y, path))
         return res[0]
         
-grid = [[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0]]
-a = maxAreaOfIsland(grid)
-print(a)
