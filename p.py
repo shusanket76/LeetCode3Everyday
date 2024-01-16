@@ -1,3 +1,5 @@
-a = [100,122,3232]
-a.pop(1)
-print(a)
+hasmap = {1:2,3:4,5:6}
+hasmap2= hasmap.copy()
+hasmap2[1]-=1
+print(hasmap)
+print(hasmap2)
