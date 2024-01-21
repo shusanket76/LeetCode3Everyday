@@ -1,5 +1,5 @@
 class Solution:
-    def minCostClimbingStairs(self, cost: List[int]) -> int:
+    def minCostClimbingStairs(self, cost) -> int:
 
     
         def dfs(tc, pos, hasmap={}):
@@ -11,7 +11,7 @@ class Solution:
             
             hasmap[pos] = min(dfs(tc,pos+1, hasmap), dfs(tc,pos+2, hasmap))+cost[pos]
             return hasmap[pos]
-            pass
+            
         tc = 0
         return min(dfs(tc, 0), dfs(tc,1))
         
