@@ -1,17 +1,6 @@
-def subarraySum(nums, k: int) -> int:
-        res = 0
-        for x in range(len(nums)):
-            temp = nums[x]
-            if temp==k:
-                res+=1
-                continue
-            for y in range(x+1, len(nums)):
-                temp+=nums[y]
-                if temp>k:
-                    break
-                if temp==k:
-                    res+=1
-        return res
-
-a  = subarraySum([1,2,3],3)
-print(a)
+a = [1,2,3,4,5,6,7,8]
+b = a[::-1]
+y = 0 
+c = b[0:4][::-1]
+d = b[4:len(b)][::-1]
+print(c+d)
