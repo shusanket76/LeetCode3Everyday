@@ -1,4 +1,5 @@
-def findPeakElement(nums) -> int:
+class Solution:
+    def findPeakElement(self, nums) -> int:
         l = 0
         r = len(nums)-1
         while l<=r:
@@ -14,18 +15,20 @@ def findPeakElement(nums) -> int:
                 rval = True
             if lval and rval:
                 if nums[mid]>nums[mid-1] and nums[mid]>nums[mid+1]:
-                    return nums[mid]
+                    return mid
                 elif nums[mid]<nums[mid-1]:
                     r=mid-1
                 elif nums[mid]<nums[mid+1]:
                     l = mid+1
             elif rval:
                 if nums[mid]>nums[mid+1]:
-                    return nums[mid]
+                    return mid
                 else:
-                    return nums[mid+1]
-    
+                    return mid+1
+ 
             else:
                 return mid
         
-a = findPeakElement([2,1])
+            
+
+        
