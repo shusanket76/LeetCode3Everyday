@@ -1,4 +1,5 @@
-def partition(s: str):
+class Solution:
+    def partition(self, s: str):
         res = []
         def checkpalindrome(word):
             l = 0 
@@ -28,5 +29,3 @@ def partition(s: str):
         dfs(s,[])
         return res
         
-a = partition("aab")
-print(a)
