@@ -1,4 +1,5 @@
-def canJump(nums) -> bool:
+class Solution:
+    def canJump(self, nums) -> bool:
         r = len(nums)-1
         l = len(nums)-1
         while r>=0:
@@ -9,6 +10,6 @@ def canJump(nums) -> bool:
             r-=1
         return dis==0
 
-a = [2,3,1,1,4]
-b = canJump(a)
-print(b)
+
+
+        
