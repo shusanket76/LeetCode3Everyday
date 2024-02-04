@@ -29,7 +29,7 @@
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
         hasmap = {i:x for x,i in enumerate(nums1)}
-        print(hasmap)
+        
         res = [-1 for y in range(len(nums1))]
         stack = []
         i=0
