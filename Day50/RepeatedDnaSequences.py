@@ -1,4 +1,5 @@
-def findRepeatedDnaSequences(s: str):
+class Solution:
+    def findRepeatedDnaSequences(self, s: str) -> List[str]:
         l = 0
         r = 0
         res = []
@@ -13,7 +14,3 @@ def findRepeatedDnaSequences(s: str):
             if b>=2:
                 res.append(a)
         return res
-
-a = findRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT")
-
-print(a)
