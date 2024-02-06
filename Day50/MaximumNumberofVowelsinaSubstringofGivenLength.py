@@ -1,4 +1,5 @@
-def maxVowels(s: str, k: int) -> int:
+class Solution:
+    def maxVowels(self, s: str, k: int) -> int:
         l = 0
         r = 0
         res = [0]
@@ -21,5 +22,4 @@ def maxVowels(s: str, k: int) -> int:
 
         return(res[0])
 
-a = maxVowels(s = "abciiidef", k = 3)
-print(a)
+        
