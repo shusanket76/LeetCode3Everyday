@@ -1,4 +1,5 @@
-def threeSumClosest(nums, target: int) -> int:
+class Solution:
+    def threeSumClosest(self, nums, target: int) -> int:
         res = [float("inf")]
         nums.sort()
         for x in range(len(nums)):
@@ -16,10 +17,5 @@ def threeSumClosest(nums, target: int) -> int:
                     l+=1
                 else:
                     return target
-
                         
         return res[0]
-
-
-a = threeSumClosest(nums = [4,0,5,-5,3,3,0,-4,-5], target = -2)
-print(a)
