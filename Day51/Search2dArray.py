@@ -1,4 +1,5 @@
-def searchMatrix(matrix, target: int) -> bool:
+class Solution:
+    def searchMatrix(self, matrix, target: int) -> bool:
         l1 = 0 
         r1 = len(matrix)-1
         while l1<=r1:
@@ -11,7 +12,7 @@ def searchMatrix(matrix, target: int) -> bool:
                 l1=mid+1
             else:
                 break
-        print(mid)
+        
         l2 = 0
         arr = matrix[mid]
         r2 = len(arr)-1
@@ -25,5 +26,4 @@ def searchMatrix(matrix, target: int) -> bool:
                 l2=mid+1
         return False
 
-
-a  = searchMatrix(matrix = [[1]], target = 1)
+        
