@@ -1,4 +1,5 @@
-def rearrangeArray(nums):
+class Solution:
+    def rearrangeArray(self, nums: List[int]) -> List[int]:
         nums.sort()
         res = [0 for x in nums]
         mid = len(nums)//2
@@ -15,5 +16,4 @@ def rearrangeArray(nums):
             r-=1
             i+=2
         return res
-a = rearrangeArray([1,2,5,9])
-print(a)
+        
