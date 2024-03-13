@@ -1,2 +1,3 @@
-print(10//10)
-print(10%10)
+a = False
+b = not a
+print(b)
