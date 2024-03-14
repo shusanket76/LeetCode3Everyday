@@ -1,38 +1,23 @@
-def longestPalindrome( s: str) -> str:
-        mid = 0
-        res = ["",float("-inf")]
-        l = mid+1
-        r = mid-1
+def countSubstrings(s: str) -> int:
+        res = []
+        def ispermutation(word):
+            l = 0
+            r = len(word)-1
+            while l<=r:
+                if word[l]!=word[r]:
+                    return False
+                l+=1
+                r-=1
+            return True
+        
+        def dfs(s, curr):
+            for x in range(len(s)):
+                if ispermutation(curr+s[:x+1]) is True:
 
-        while mid<len(s):
-            l = mid-1
-            r = mid+1
-            while l>=0 and r<len(s) and s[l]==s[r]:
-                l-=1
-                r+=1
-                if res[1]<(r-l+1):
-                    res[0]=s[l:r+1]
-                    res[1] = r-l+1
-            mid+=1
-        mid1=0
-        mid2=1
-        l = mid1+1
-        r = mid2-1
-        while mid2<len(s):
-            l = mid1-1
-            r = mid2+1
-            while l>=0 and r<len(s) and s[l]==s[r]:
-                l-=1
-                r+=1
-                if res[1]<(r-l+1):
-                    res[0]=s[l:r+1]
-                    res[1] = r-l+1
-            mid1+=1
-            mid2+=1
-        print(res[0])
-        return res[0]
-            
-
-a = longestPalindrome("babad")
-
+                    res.append(curr+s[:x+1])
+                    dfs(s[x+1:], curr+s[:x+1]) 
+        dfs(s, curr="")
+        print(res)
+        return len(res)
+a = countSubstrings("aaa")
         
