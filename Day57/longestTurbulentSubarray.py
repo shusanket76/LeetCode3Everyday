@@ -1,4 +1,5 @@
-def maxTurbulenceSize(nums) -> int:
+class Solution:
+    def maxTurbulenceSize(self, nums: List[int]) -> int:
         curr = 0
         r = 0
         finalres = 0
@@ -15,7 +16,7 @@ def maxTurbulenceSize(nums) -> int:
                 greaterthan = True
                 lessthan = False
             elif nums[r]<nums[r+1]:
-                if greaterthan:
+                if  greaterthan:
                     curr+=1
                     finalres = max(finalres, curr)
                 else:
@@ -30,6 +31,6 @@ def maxTurbulenceSize(nums) -> int:
                 lessthan = True
                 greaterthan = True
             r+=1
-        print(finalres)
-a = [9,4,2,10,7,8,8,1,9]
-maxTurbulenceSize(a)
+        return(finalres+1)
+
+        
