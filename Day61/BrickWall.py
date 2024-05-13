@@ -1,5 +1,7 @@
-def leastBricks(wall) -> int:
+class Solution:
+    def leastBricks(self, wall: List[List[int]]) -> int:
         hasmap={}
+        
         for x in wall:
             totalcount = 0
             for y in x:
@@ -9,11 +11,12 @@ def leastBricks(wall) -> int:
                 else:
                     hasmap[totalcount]=1
              
-        print(hasmap)
+        
         hasmap.pop(totalcount)
-        return totalcount - max(hasmap.values())
 
-
-a = [[1,2,2,1],[3,1,2],[1,3,2],[2,4],[3,1,2],[1,3,1,1]]
-leastBricks(a)
-print(leastBricks(a))
+        if len(hasmap)==0:
+            return len(wall)
+        else:
+            return len(wall) - max(hasmap.values())
+        
+        
