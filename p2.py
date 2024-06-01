@@ -1,17 +1,22 @@
-def maxProduct(nums) -> int:
-        hasmap = {}
-        
-        def dfs(nums, curr):
-            if len(nums)==0:
-                return 1
-            res = None
-            for x in nums:
-                a = dfs(nums[1:], curr)
-                a*=x
-                if res is None or res<a:
-                    res = a
+def lengthOfLIS(nums) -> int:
+        finalres = [0]
+        def dfs(pointer, prev):
+            if pointer==len(nums):
+                return 0
+            if prev>=nums[pointer]:
+                return -1
+            res = 0
+            for y in nums:
+                prev = y
+                for x in range(pointer+1, len(nums)+1):
+
+                    a = dfs(x, prev)+1
+                    if res<a:
+                        res = a
             return res
-
-
-        return dfs(nums, curr=1)
-a = maxProduct([2,3,-1,4])
+        pointer = 0
+        prev = nums[0]-1
+        
+        return dfs(pointer, prev)
+a = lengthOfLIS([10,9,2,5,3,7,101,18])
+print(a)
