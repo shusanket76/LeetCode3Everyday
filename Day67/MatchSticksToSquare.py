@@ -1,10 +1,11 @@
-def makesquare(matchsticks) -> bool:
+class Solution:
+    def makesquare(self, matchsticks: List[int]) -> bool:
         ts = 0
         for x in matchsticks:
             ts+=x
         target = 0
         if ts%4==0:
-            target = ts//4
+            target = ts/4
         else:
             return False   
         sides = [0 for x in range(4)]
@@ -19,6 +20,6 @@ def makesquare(matchsticks) -> bool:
                         return True
                     sides[j]-=matchsticks[i]
             return False
-        dfs(0)
+        return dfs(0)
            
-a = makesquare([1,1,2,2,2])
+        
