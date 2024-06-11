@@ -1,5 +1,6 @@
 from collections import deque
-def canReach(s: str, minJump: int, maxJump: int) -> bool:
+class Solution:
+    def canReach(self, s: str, minJump: int, maxJump: int) -> bool:
         queue = deque()
         far = 0
         queue.append(0)
@@ -13,6 +14,3 @@ def canReach(s: str, minJump: int, maxJump: int) -> bool:
                     queue.append(j)
             far = maxJump+node
         return False
-
-
-a = canReach("0101010",2,4)
