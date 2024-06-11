@@ -1,5 +1,7 @@
-def findMinArrowShots(points) -> int:
-        points.sort(key = lambda i:i[0])
+class Solution:
+    def findMinArrowShots(self, points: List[List[int]]) -> int:
+        points.sort(key = lambda i:i[1])
+        print(points)
         shoot = points[0][1]
         r = 1
         res = 1
@@ -11,5 +13,4 @@ def findMinArrowShots(points) -> int:
                     res+=1
                 r+=1
         return res
-a = findMinArrowShots([[10,16],[2,8],[1,6],[7,12]])
-print(a)
+     
