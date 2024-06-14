@@ -1,18 +1,14 @@
-from collections import deque
-def canReach(s: str, minJump: int, maxJump: int) -> bool:
-        queue = deque()
-        far = 0
-        queue.append(0)
-        while queue:
-            node = queue.popleft()
-            start = max(node+minJump, far+1)
-            for j in range(start, min(maxJump+node+1, len(s))):
-                if j==len(s)-1 and s[j]=="0":
-                    return True
-                if s[j]=="0":
-                    queue.append(j)
-            far = maxJump+node
-        return False
-
-
-a = canReach("0101010",2,4)
+def totalMoney(n: int) -> int:
+        l = 0
+        r = 1
+        s = 0
+        while l<n:
+            if l+7>n:
+                s+=(r+(l+6-n))*(n-r+1)//2
+                l+=(n-r+1)
+            else:
+                s+=(r+6+r)*(7)//2
+                l+=7
+            r=r+1
+        return s
+a=totalMoney(10)
