@@ -1,6 +1,6 @@
 import math
 class Solution:
-    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+    def minEatingSpeed(self, piles, h: int) -> int:
         l = 1
         r = max(piles)
         res = r
