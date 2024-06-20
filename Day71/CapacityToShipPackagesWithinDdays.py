@@ -1,10 +1,10 @@
-def shipWithinDays(weights, days: int) -> int:
+class Solution:
+    def shipWithinDays(self, weights, days: int) -> int:
         l = max(weights)
         r = sum(weights)
         res = r
         while l<=r:
             mid = int((l+r)/2)
-            temp = 0
             r1 = 0
             tempsum = 0
             tempship = 1
@@ -12,7 +12,7 @@ def shipWithinDays(weights, days: int) -> int:
                 if (tempsum+weights[r1])>mid:
                     tempship+=1
                     tempsum=0
-                    if (tempship==days and r1<len(weights)-1):
+                    if (tempship>days):
                         break
                     else:
                         tempsum+=weights[r1]
@@ -26,4 +26,3 @@ def shipWithinDays(weights, days: int) -> int:
                 l=mid+1
         return res
             
-a = shipWithinDays([3,2,2,4,1,4],5)
