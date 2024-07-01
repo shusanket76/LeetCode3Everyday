@@ -1,17 +1,29 @@
-from collections import deque
-sit = set()
-sit.add((1,2))
-sit.add((12,2))
-sit.add((122,2))
-sit.add((122,22))
-sit.add((122,222))
-queue=deque()
-# queue.extend(sit)
-queue.append((1,2))
-queue.append((12,2))
-queue.append((1,22))
-queue.append((13,2))
-queue.append((1,42))
-queue.append((1,52))
-print(queue)
-print(len(queue))
+def lengthOfLIS(nums) -> int:
+        hasmap = {}
+        res = [0]
+        def dfs(start, prev):
+            
+            if start==len(nums) or prev>=nums[start]:
+                return 0
+            if start in hasmap:
+                 return hasmap[start]+1
+            maxval = None
+            for x in range(start, len(nums)):
+                a = dfs(x+1,nums[start] )
+                if a is not None:
+                    if maxval is None or maxval<a:
+                        a+=1
+                        maxval=a
+            hasmap[start] = maxval
+            return maxval
+
+
+            
+        res = [0]
+        for x in range(len(nums)):
+            b = dfs(x,float("-inf") )
+            res[0] = max(res[0],b)
+        return res[0]
+
+a = lengthOfLIS([10,9,2,5,3,4])
+print(a)
