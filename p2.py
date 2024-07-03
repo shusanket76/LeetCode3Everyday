@@ -1,26 +1,34 @@
-def find_starting_point(arr):
-    total_sum = 0
-    current_sum = 0
-    start_index = 0
+def rotate(matrix) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        top = 0
+        bottom = len(matrix)-1
+        
+        while top<=bottom:
+            l = top
+            r = bottom
+            val1=val2=0
+            for x in range(r-l):
+                # top left
+                val = matrix[top][x]
 
-    for i in range(len(arr)):
-        total_sum += arr[i]
-        current_sum += arr[i]
+                # top left
+                matrix[top][x] = matrix[bottom-x][l]
 
-        if current_sum < 0:
-            start_index = i + 1
-            current_sum = 0
+                # bottom left
+                matrix[bottom-x][l]  = matrix[bottom][r-x]
 
-    # If total_sum is negative, there's no valid start point
-    if total_sum < 0:
-        return -1
-    else:
-        return start_index % len(arr)
+                # bottom right
+                matrix[bottom][r-x] = matrix[x][r]
 
-arr = [-1, 3, -4, 2]
-start_index = find_starting_point(arr)
+                # top right
 
-if start_index != -1:
-    print(f"Starting point index: {start_index}, value: {arr[start_index]}")
-else:
-    print("No valid starting point found.")
+                matrix[x][r] = val
+
+
+            top+=1
+            bottom-=1
+        return matrix
+matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
+a = rotate(matrix)
