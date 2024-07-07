@@ -1,5 +1,6 @@
 from collections import deque
-def minCost(colors: str, neededTime) -> int:
+class Solution:
+    def minCost(self, colors: str, neededTime: List[int]) -> int:
         stack = deque()
         res = 0
         for x in range(len(colors)):
@@ -14,11 +15,9 @@ def minCost(colors: str, neededTime) -> int:
                         
                         
                     else:
-
                         res+=neededTime[x]
                 else:
-                     stack.append(x)
+                    stack.append(x)
       
-        print(res)
-        return 1
-a = minCost("abaac",[1,2,3,4,5])
+        return (res)
+        
