@@ -1,34 +1,40 @@
-def rotate(matrix) -> None:
-        """
-        Do not return anything, modify matrix in-place instead.
-        """
-        top = 0
-        bottom = len(matrix)-1
+def gridGame(grid) -> int:
+
+        # find total sum
+
+        # find total sum
+        totalsum = 0
+        for x in range(len(grid)):
+            for y in range(len(grid[0])):
+                totalsum +=grid[x][y]
         
-        while top<=bottom:
-            l = top
-            r = bottom
-            val1=val2=0
-            for x in range(r-l):
-                # top left
-                val = matrix[top][x]
-
-                # top left
-                matrix[top][x] = matrix[bottom-x][l]
-
-                # bottom left
-                matrix[bottom-x][l]  = matrix[bottom][r-x]
-
-                # bottom right
-                matrix[bottom][r-x] = matrix[x][r]
-
-                # top right
-
-                matrix[x][r] = val
-
-
-            top+=1
-            bottom-=1
-        return matrix
-matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
-a = rotate(matrix)
+        def redrobot(x, y, visit, total=totalsum):
+            if x==2 and y==len(grid[0]):
+                val = bluerobot(0,0,visit, 0)
+                return val
+            if x>=0 and y>=0 and x<2 and y<len(grid[0]):
+                visit.add((x,y))
+                right = redrobot(x,y+1, visit) 
+                down = redrobot(x+1,y, visit)
+                visit.remove((x,y))
+                return min(right, down)
+            else:
+                return total
+        def bluerobot(x,y, visit, curr):
+            if x==2 and y==len(grid[0]):
+                return 0
+            if x>=0 and y>=0 and x<2 and y<len(grid[0]):
+                right = bluerobot(x,y+1, visit, curr)
+                if (x,y) not in visit:
+                    right+=grid[x][y]
+                down = bluerobot(x+1, y, visit, curr)
+                if (x,y) not in visit:
+                    down+=grid[x][y]
+                return max(right, down)
+            else:
+                return 0
+                    
+        c = redrobot(0,0, set(), totalsum)
+        print(c)
+grid = [[2,5,4],[1,5,1]]
+b = gridGame(grid)
