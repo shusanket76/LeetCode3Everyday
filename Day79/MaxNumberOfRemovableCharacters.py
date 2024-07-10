@@ -6,9 +6,11 @@ class Solution:
         while l<=r:
             mid = int((l+r)/2)
             pl = 0
-            sl = 0 
+            sl = 0
+            a = set(removable[:mid+1]) 
             while pl<len(p) and sl<len(s):
-                if sl in set(removable[:mid+1]) or s[sl]!=p[pl]:
+                
+                if sl in a or s[sl]!=p[pl]:
                     sl+=1
                     continue
                 
