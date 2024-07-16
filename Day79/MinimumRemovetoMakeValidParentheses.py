@@ -13,6 +13,8 @@ class Solution:
                     haset.pop()
                 else:
                     closehaset.append(x)
+        haset = set(haset)
+        closehaset = set(closehaset)
         for x in range(len(s)):
             if x in haset or x in closehaset:
                 continue
